@@ -2072,16 +2072,16 @@
 
     const staticMap = {
       "index.html": "overview",
-      "../index.html": "overview",
-      "pages/map.html": "map",
+      "index.html": "overview",
       "map.html": "map",
-      "pages/site-detail.html": "detail",
+      "map.html": "map",
       "site-detail.html": "detail",
-      "pages/configurator.html": "configurator",
+      "site-detail.html": "detail",
       "configurator.html": "configurator",
-      "pages/simulation.html": "simulation",
+      "configurator.html": "configurator",
       "simulation.html": "simulation",
-      "pages/decision.html": "decision",
+      "simulation.html": "simulation",
+      "decision.html": "decision",
       "decision.html": "decision"
     };
 
@@ -2195,7 +2195,6 @@
   }
 
   function getPagePath(pageKey) {
-    const inPages = window.location.pathname.includes("/pages/");
     const fileMap = {
       overview: "index.html",
       map: "map.html",
@@ -2204,8 +2203,7 @@
       simulation: "simulation.html",
       decision: "decision.html"
     };
-    if (pageKey === "overview") return inPages ? "../index.html" : "index.html";
-    return inPages ? fileMap[pageKey] : "pages/" + fileMap[pageKey];
+    return fileMap[pageKey];
   }
 
   function resolveRouteId(routeId, site) {
